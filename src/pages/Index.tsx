@@ -195,6 +195,132 @@ const Index = () => {
         </div>
       </section>
 
+      <section className="py-20 bg-secondary/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center space-y-4 mb-16 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+              Наши услуги и товары
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Больше, чем просто кофейня — целый мир эко-культуры и вкуса
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <Card className="border-border bg-card hover:shadow-xl transition-all duration-300 animate-scale-in">
+              <CardContent className="p-6 space-y-4">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Icon name="Coffee" size={32} className="text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold text-card-foreground">Авторский кофе</h3>
+                <p className="text-muted-foreground text-sm">
+                  Свежая обжарка, альтернативные методы заваривания (V60, аэропресс, кемекс)
+                </p>
+                <div className="pt-2">
+                  <span className="text-2xl font-bold text-primary">от 250₽</span>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-border bg-card hover:shadow-xl transition-all duration-300 animate-scale-in" style={{animationDelay: '0.1s'}}>
+              <CardContent className="p-6 space-y-4">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Icon name="Cake" size={32} className="text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold text-card-foreground">Домашние десерты</h3>
+                <p className="text-muted-foreground text-sm">
+                  Эклеры, капкейки, чизкейки. Минимум сахара, органическая мука
+                </p>
+                <div className="pt-2">
+                  <span className="text-2xl font-bold text-primary">от 180₽</span>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-border bg-card hover:shadow-xl transition-all duration-300 animate-scale-in" style={{animationDelay: '0.2s'}}>
+              <CardContent className="p-6 space-y-4">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Icon name="ShoppingBag" size={32} className="text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold text-card-foreground">Эко-мерч</h3>
+                <p className="text-muted-foreground text-sm">
+                  Многоразовые кружки с логотипом, термокружки, эко-сумки
+                </p>
+                <div className="pt-2">
+                  <span className="text-2xl font-bold text-primary">от 600₽</span>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-border bg-card hover:shadow-xl transition-all duration-300 animate-scale-in" style={{animationDelay: '0.3s'}}>
+              <CardContent className="p-6 space-y-4">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Icon name="GraduationCap" size={32} className="text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold text-card-foreground">Мастер-классы</h3>
+                <p className="text-muted-foreground text-sm">
+                  Латте-арт и выпечка. Научим создавать кофейное искусство
+                </p>
+                <div className="pt-2">
+                  <span className="text-sm text-muted-foreground">По записи</span>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="border-border bg-card overflow-hidden group hover:shadow-xl transition-all duration-300">
+              <div className="relative h-64 overflow-hidden">
+                <img 
+                  src="https://cdn.poehali.dev/projects/ad266b6e-f253-4c70-82fa-bb0067c7143a/files/e21ff3ee-08d0-48d7-9d20-3b13967acb62.jpg"
+                  alt="Альтернативные методы"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <h3 className="text-2xl font-bold mb-2">Альтернативное заваривание</h3>
+                  <p className="text-sm">V60, аэропресс, кемекс — выбирайте свой способ</p>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="border-border bg-card overflow-hidden group hover:shadow-xl transition-all duration-300">
+              <div className="relative h-64 overflow-hidden">
+                <img 
+                  src="https://cdn.poehali.dev/projects/ad266b6e-f253-4c70-82fa-bb0067c7143a/files/f0790efb-42af-433b-a810-f7d789c3943e.jpg"
+                  alt="Домашние десерты"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <h3 className="text-2xl font-bold mb-2">Натуральные десерты</h3>
+                  <p className="text-sm">Свежая выпечка каждый день</p>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="border-border bg-card overflow-hidden group hover:shadow-xl transition-all duration-300">
+              <div className="relative h-64 overflow-hidden">
+                <img 
+                  src="https://cdn.poehali.dev/projects/ad266b6e-f253-4c70-82fa-bb0067c7143a/files/e1de870a-21c7-48d9-bf29-3c86737ff7e6.jpg"
+                  alt="Мастер-классы"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <h3 className="text-2xl font-bold mb-2">Обучение</h3>
+                  <p className="text-sm">Мастер-классы по латте-арту</p>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       <section id="contact" className="py-20 bg-primary/5">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
