@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
 import { useState } from "react";
 
 const Index = () => {
@@ -12,14 +13,19 @@ const Index = () => {
     name: '',
     contact: '',
     subject: '',
-    message: ''
+    message: '',
+    consent: false
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.consent) {
+      alert('Пожалуйста, дайте согласие на обработку персональных данных');
+      return;
+    }
     console.log('Form submitted:', formData);
     alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
-    setFormData({ name: '', contact: '', subject: '', message: '' });
+    setFormData({ name: '', contact: '', subject: '', message: '', consent: false });
   };
 
   return (
@@ -233,7 +239,7 @@ const Index = () => {
                 </div>
                 <h3 className="text-xl font-semibold text-card-foreground">Авторский кофе</h3>
                 <p className="text-muted-foreground text-sm">
-                  Свежая обжарка, альтернативные методы заваривания (V60, аэропресс, кемекс)
+                  Зёрна от фермеров Колумбии и Эфиопии — прямые поставки, честная цена. Свежая обжарка в нашей ростерне. Раскрываем весь потенциал через V60, аэропресс и кемекс
                 </p>
                 <div className="pt-2">
                   <span className="text-2xl font-bold text-primary">от 250₽</span>
@@ -248,7 +254,7 @@ const Index = () => {
                 </div>
                 <h3 className="text-xl font-semibold text-card-foreground">Домашние десерты</h3>
                 <p className="text-muted-foreground text-sm">
-                  Эклеры, капкейки, чизкейки. Минимум сахара, органическая мука
+                  Воздушные эклеры, нежные капкейки и сливочные чизкейки. Только органическая мука местного производства, кокосовый сахар вместо рафинированного. Без консервантов и красителей
                 </p>
                 <div className="pt-2">
                   <span className="text-2xl font-bold text-primary">от 180₽</span>
@@ -263,7 +269,7 @@ const Index = () => {
                 </div>
                 <h3 className="text-xl font-semibold text-card-foreground">Эко-мерч</h3>
                 <p className="text-muted-foreground text-sm">
-                  Многоразовые кружки с логотипом, термокружки, эко-сумки
+                  Бамбуковые кружки с нашим клевером, термосы из нержавеющей стали, хлопковые авоськи. Каждая покупка — вклад в сохранение природы. Замените одноразовый пластик!
                 </p>
                 <div className="pt-2">
                   <span className="text-2xl font-bold text-primary">от 600₽</span>
@@ -278,7 +284,7 @@ const Index = () => {
                 </div>
                 <h3 className="text-xl font-semibold text-card-foreground">Мастер-классы</h3>
                 <p className="text-muted-foreground text-sm">
-                  Латте-арт и выпечка. Научим создавать кофейное искусство
+                  Погрузитесь в мир латте-арта или научитесь печь эко-десерты. Небольшие группы, уютная атмосфера, органические ингредиенты. Забирайте знания и угощения с собой!
                 </p>
                 <div className="pt-2">
                   <span className="text-sm text-muted-foreground">По записи</span>
@@ -533,6 +539,18 @@ const Index = () => {
                       required
                       className="min-h-[150px] bg-background"
                     />
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <Checkbox 
+                      id="consent"
+                      checked={formData.consent}
+                      onCheckedChange={(checked) => setFormData({...formData, consent: checked === true})}
+                      className="mt-1"
+                    />
+                    <Label htmlFor="consent" className="text-sm text-muted-foreground leading-relaxed cursor-pointer">
+                      Я согласен(а) на обработку персональных данных в соответствии с политикой конфиденциальности *
+                    </Label>
                   </div>
 
                   <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
