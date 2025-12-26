@@ -1,8 +1,27 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useState } from "react";
 
 const Index = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    contact: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+    alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
+    setFormData({ name: '', contact: '', subject: '', message: '' });
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
@@ -321,43 +340,87 @@ const Index = () => {
         </div>
       </section>
 
+      <section className="py-20 bg-secondary/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center space-y-4 mb-16 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+              Наша команда
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Люди, которые создают атмосферу Clover каждый день
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="border-border bg-card overflow-hidden hover:shadow-xl transition-all duration-300 animate-scale-in">
+              <div className="relative h-80 overflow-hidden">
+                <img 
+                  src="https://cdn.poehali.dev/projects/ad266b6e-f253-4c70-82fa-bb0067c7143a/files/fda85003-0b18-4350-9b4e-0bf5f661c96e.jpg"
+                  alt="Анна"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <CardContent className="p-6 text-center space-y-3">
+                <h3 className="text-2xl font-semibold text-card-foreground">Анна</h3>
+                <p className="text-sm text-primary font-medium">Главный бариста и соучредитель</p>
+                <p className="text-muted-foreground italic">"Кофе — это диалог вкусов"</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-border bg-card overflow-hidden hover:shadow-xl transition-all duration-300 animate-scale-in" style={{animationDelay: '0.1s'}}>
+              <div className="relative h-80 overflow-hidden">
+                <img 
+                  src="https://cdn.poehali.dev/projects/ad266b6e-f253-4c70-82fa-bb0067c7143a/files/6ea6529c-3898-42d0-acd0-6840ed212920.jpg"
+                  alt="Максим"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <CardContent className="p-6 text-center space-y-3">
+                <h3 className="text-2xl font-semibold text-card-foreground">Максим</h3>
+                <p className="text-sm text-primary font-medium">Шеф-кондитер</p>
+                <p className="text-muted-foreground italic">"Сладость должна быть натуральной"</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-border bg-card overflow-hidden hover:shadow-xl transition-all duration-300 animate-scale-in" style={{animationDelay: '0.2s'}}>
+              <div className="relative h-80 overflow-hidden">
+                <img 
+                  src="https://cdn.poehali.dev/projects/ad266b6e-f253-4c70-82fa-bb0067c7143a/files/c298803b-9ac5-4352-bcde-9850c0540456.jpg"
+                  alt="Елена"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <CardContent className="p-6 text-center space-y-3">
+                <h3 className="text-2xl font-semibold text-card-foreground">Елена</h3>
+                <p className="text-sm text-primary font-medium">Менеджер по экологии</p>
+                <p className="text-muted-foreground italic">"Наша планета заслуживает вкусного кофе без вреда"</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       <section id="contact" className="py-20 bg-primary/5">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative animate-scale-in">
-              <img 
-                src="https://cdn.poehali.dev/projects/ad266b6e-f253-4c70-82fa-bb0067c7143a/files/d1fa9d2b-a285-4f1e-a6a5-a11539249426.jpg"
-                alt="Интерьер Clover"
-                className="rounded-3xl shadow-2xl w-full h-[400px] object-cover"
-              />
-            </div>
-            <div className="space-y-6 animate-fade-in">
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-                Приходите к нам
-              </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Мы находимся в самом сердце города. Уютная атмосфера, быстрый Wi-Fi и самый вкусный органический кофе ждут вас каждый день.
-              </p>
+          <div className="grid md:grid-cols-2 gap-12">
+            <div className="space-y-8 animate-fade-in">
+              <div>
+                <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+                  Контакты
+                </h2>
+                <p className="text-lg text-muted-foreground">
+                  Свяжитесь с нами любым удобным способом
+                </p>
+              </div>
               
-              <div className="space-y-4">
+              <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <Icon name="MapPin" size={24} className="text-primary" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Адрес</h3>
-                    <p className="text-muted-foreground">ул. Зелёная, 15, Москва</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Icon name="Clock" size={24} className="text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground mb-1">Время работы</h3>
-                    <p className="text-muted-foreground">Пн-Пт: 8:00 - 22:00</p>
-                    <p className="text-muted-foreground">Сб-Вс: 9:00 - 23:00</p>
+                    <p className="text-muted-foreground">ул. Зеленая, д. 10, г. Экогород</p>
                   </div>
                 </div>
 
@@ -367,16 +430,118 @@ const Index = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Телефон</h3>
-                    <p className="text-muted-foreground">+7 (495) 123-45-67</p>
+                    <p className="text-muted-foreground">+7 (999) 123-45-67</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Icon name="Mail" size={24} className="text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground mb-1">Email</h3>
+                    <p className="text-muted-foreground">hello@clover-coffee.ru</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Icon name="Share2" size={24} className="text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground mb-2">Социальные сети</h3>
+                    <div className="flex gap-3">
+                      <a href="#" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors">
+                        <Icon name="Instagram" size={20} className="text-primary" />
+                      </a>
+                      <a href="#" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors">
+                        <Icon name="Send" size={20} className="text-primary" />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground mt-6">
-                <Icon name="Navigation" size={20} className="mr-2" />
-                Построить маршрут
-              </Button>
+              <div className="rounded-2xl overflow-hidden shadow-lg h-[300px]">
+                <iframe
+                  src="https://yandex.ru/map-widget/v1/?z=16&ol=biz&oid=1234567890"
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  className="w-full h-full"
+                  title="Карта расположения Clover"
+                />
+              </div>
             </div>
+
+            <Card className="border-border bg-card animate-scale-in">
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-bold text-card-foreground mb-6">
+                  Форма обратной связи
+                </h3>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="name">Имя *</Label>
+                    <Input 
+                      id="name" 
+                      placeholder="Ваше имя"
+                      value={formData.name}
+                      onChange={(e) => setFormData({...formData, name: e.target.value})}
+                      required
+                      className="bg-background"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="contact">Email или телефон *</Label>
+                    <Input 
+                      id="contact" 
+                      placeholder="example@mail.ru или +7 (999) 123-45-67"
+                      value={formData.contact}
+                      onChange={(e) => setFormData({...formData, contact: e.target.value})}
+                      required
+                      className="bg-background"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="subject">Тема обращения *</Label>
+                    <Select 
+                      value={formData.subject}
+                      onValueChange={(value) => setFormData({...formData, subject: value})}
+                      required
+                    >
+                      <SelectTrigger className="bg-background">
+                        <SelectValue placeholder="Выберите тему" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="partnership">Предложение о сотрудничестве</SelectItem>
+                        <SelectItem value="menu">Вопрос по меню</SelectItem>
+                        <SelectItem value="feedback">Отзыв</SelectItem>
+                        <SelectItem value="other">Другое</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="message">Сообщение *</Label>
+                    <Textarea 
+                      id="message" 
+                      placeholder="Напишите ваше сообщение..."
+                      value={formData.message}
+                      onChange={(e) => setFormData({...formData, message: e.target.value})}
+                      required
+                      className="min-h-[150px] bg-background"
+                    />
+                  </div>
+
+                  <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+                    <Icon name="Send" size={20} className="mr-2" />
+                    Отправить
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
